@@ -7,7 +7,7 @@ import { UserSettings } from '../data/user-settings';
   styleUrls: ['./user-settings-form.component.css'],
 })
 export class UserSettingsFormComponent implements OnInit {
-  userSettings: UserSettings = {
+  originalUserSettings: UserSettings = {
     name: 'kote',
     emailOffers: true,
     interfaceStyle: 'dark',
@@ -15,9 +15,11 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'Here are some notes',
   };
 
-  constructor() {}
+  userSettings: UserSettings = { ...this.originalUserSettings };
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void { }
   onSubmit(form: NgForm) {
     console.log(form.value);
   }
