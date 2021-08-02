@@ -6,9 +6,17 @@
       <input
         class="form-control"
         id="name"
+        required
+        (blur)="onBlur(nameField)"
+        [class.field-error]="form.submitted && nameField.invalid"
+        #nameField="ngModel"
         [(ngModel)]="userSettings.name"
         name="name"
       />
+      <div [hidden]="!form.submitted || nameField.valid"
+           class="alert alert-danger">
+          Enter a name
+      </div>
     </div>
     <div class="form-check form-group">
       <input
@@ -89,4 +97,3 @@
   </form>
 </div>
 
-{{ userSettings | json }}
