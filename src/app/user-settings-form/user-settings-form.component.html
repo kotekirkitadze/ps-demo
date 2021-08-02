@@ -1,14 +1,20 @@
 <div class="container">
   <h2>User settings</h2>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm" ngNativeValidate >
     <div class="form-group">
       <label for="name">Name</label>
       <input
         class="form-control"
         id="name"
+        required
+        #nameField="ngModel"
         [(ngModel)]="userSettings.name"
         name="name"
       />
+      <div [hidden]="nameField.valid || nameField.untouched"
+           class="alert alert-danger">
+          Enter a name
+      </div>
     </div>
     <div class="form-check form-group">
       <input
@@ -89,4 +95,3 @@
   </form>
 </div>
 
-{{ userSettings | json }}
