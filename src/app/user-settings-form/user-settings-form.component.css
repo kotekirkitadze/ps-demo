@@ -1,7 +1,12 @@
 .btn {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .container {
-    width: 50%;
+  width: 50%;
+}
+
+.userInterface {
+  margin-top: 10px;
+  margin-bottom: 3px;
 }
