@@ -1,17 +1,19 @@
 <div class="container">
   <h2>User settings</h2>
-  <form #form="ngForm" ngNativeValidate >
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
       <label for="name">Name</label>
       <input
         class="form-control"
         id="name"
         required
+        (blur)="onBlur(nameField)"
+        [class.field-error]="form.submitted && nameField.invalid"
         #nameField="ngModel"
         [(ngModel)]="userSettings.name"
         name="name"
       />
-      <div [hidden]="nameField.valid || nameField.untouched"
+      <div [hidden]="!form.submitted || nameField.valid"
            class="alert alert-danger">
           Enter a name
       </div>
