@@ -4,18 +4,19 @@ import { Observable, of } from 'rxjs';
 import { UserSettings } from './user-settings';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSubscriptionTypes(): Observable<string[]> {
     return of(['Monthly', 'Annual', 'Lifetime']);
   }
 
   postUserSettingsForm(userSettings: UserSettings): Observable<any> {
-    return this.http.post('https://putsreq.com/ZtUnhVSrV3Zyoea1EC2g', userSettings);
+    return this.http.post(
+      'https://putsreq.com/ZtUnhVSrV3Zyoea1EC2g',
+      userSettings
+    );
   }
-
 }
