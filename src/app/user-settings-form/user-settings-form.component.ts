@@ -22,10 +22,16 @@ export class UserSettingsFormComponent implements OnInit {
   postErrorMessage = '';
   subscriptionTypes: Observable<string[]>;
   singleModel: string = 'On';
-  constructor(private dataService: DataService) {}
+
+  startDate: Date;
+  startTime: Date;
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+
+    this.startDate = new Date();
+    this.startTime = new Date();
   }
 
   // onHttpError(errorResponse: any) {

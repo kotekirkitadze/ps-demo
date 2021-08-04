@@ -21,6 +21,32 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input type="text"
+             name="startDate"
+             id="startDate"
+             [(ngModel)]="startDate"
+             placeholder="Datepicker"
+             class="form-control"
+             bsDaterangepicker >
+    </div>
+    Start date: {{startDate}}
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime" id="startTime"></timepicker>
+    </div>
+
+    Start time: {{startTime}}
+
+
+    <!-- <div class="form-group">
+      User Rating
+      <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+
+    </div> -->
+
     <!-- <button type="button" class="btn btn-primary"
             name="singleModel"
             [(ngModel)]="singleModel" btnCheckbox
